@@ -1,12 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CustomStack
 {
-    class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            StackOfStrings elements = new StackOfStrings();
+
+            Stack<string> newElements = new Stack<string>();
+
+            newElements.Push("something");
+            newElements.Push("Anything");
+
+            Console.WriteLine(elements.IsEmpty());
+
+            elements.AddRange(newElements);
+            Console.WriteLine(elements.IsEmpty());
         }
     }
 }
