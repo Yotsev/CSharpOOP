@@ -9,15 +9,19 @@ namespace CustomStack
         {
             StackOfStrings elements = new StackOfStrings();
 
-            Stack<string> newElements = new Stack<string>();
-
-            newElements.Push("something");
-            newElements.Push("Anything");
+            List<string> newElements = new List<string>()
+            {
+                "Something",
+                "Anything",
+                "Something else"
+            };
 
             Console.WriteLine(elements.IsEmpty());
 
             elements.AddRange(newElements);
             Console.WriteLine(elements.IsEmpty());
+
+            Console.WriteLine(string.Join(", ",elements));
         }
     }
 }
