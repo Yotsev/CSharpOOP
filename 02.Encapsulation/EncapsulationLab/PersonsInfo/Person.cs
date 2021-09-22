@@ -11,8 +11,6 @@ namespace PersonsInfo
         private int age;
         private decimal salary;
 
-        
-
         public Person(string firstName, string lastName, int age)
         {
             this.FirstName = firstName;
