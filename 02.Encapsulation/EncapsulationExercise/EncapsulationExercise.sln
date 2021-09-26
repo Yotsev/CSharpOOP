@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassBoxData", "ClassBoxDat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFarm", "AnimalFarm\AnimalFarm.csproj", "{147D61A7-2753-42C2-83AD-D7F9052EEC9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingSpree", "ShoppingSpree\ShoppingSpree.csproj", "{23AEA196-B2C7-45AB-AEE7-2C67C3F06117}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{147D61A7-2753-42C2-83AD-D7F9052EEC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{147D61A7-2753-42C2-83AD-D7F9052EEC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{147D61A7-2753-42C2-83AD-D7F9052EEC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23AEA196-B2C7-45AB-AEE7-2C67C3F06117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23AEA196-B2C7-45AB-AEE7-2C67C3F06117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23AEA196-B2C7-45AB-AEE7-2C67C3F06117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23AEA196-B2C7-45AB-AEE7-2C67C3F06117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
