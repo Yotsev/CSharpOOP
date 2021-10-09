@@ -8,65 +8,54 @@ namespace ShoppingSpree
     {
         private string name;
         private decimal money;
-        private readonly List<Product> bagOfProducts;
+        private List<Product> products;
 
         public Person(string name, decimal money)
         {
-            Name = name;
-            Money = money;
-            bagOfProducts = new List<Product>();  
+            this.Name = name;
+            this.Money = money;
+            this.Products = new List<Product>();
         }
 
-        public IReadOnlyCollection<Product> BagOfProducts
-        {
-            get { return bagOfProducts.AsReadOnly(); }
-        }
         public string Name
         {
-            get { return name; }
-            private set
+            get
+            {
+                return this.name;
+            }
+
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Name cannot be empty");
                 }
 
-                name = value;
+                this.name = value;
             }
         }
+
         public decimal Money
         {
-            get { return money; }
-            private set
+            get
+            {
+                return this.money;
+            }
+            set
             {
                 if (value < 0)
                 {
                     throw new ArgumentException("Money cannot be negative");
                 }
 
-                money = value;
+                this.money = value;
             }
         }
 
-        public void AddToBag(Product product)
+        public List<Product> Products
         {
-            if (!CanAfford(product))
-            {
-                Console.WriteLine($"{Name} can't afford {product.Name}");
-            }
-            else
-            {
-                bagOfProducts.Add(product);
-                Money -= product.Cost;
-                Console.WriteLine($"{Name} bought {product.Name}");
-            }
-        }
-
-        private bool CanAfford(Product product)
-        {
-            bool canAfford = money >= product.Cost;
-
-            return canAfford;
+            get { return this.products; }
+            set { this.products = value; }
         }
     }
 }

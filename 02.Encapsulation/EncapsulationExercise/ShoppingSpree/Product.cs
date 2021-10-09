@@ -11,24 +11,42 @@ namespace ShoppingSpree
 
         public Product(string name, decimal cost)
         {
-            Name = name;
-            Cost = cost;
+            this.Name = name;
+            this.Cost = cost;
         }
 
         public string Name
         {
-            get { return name; }
-           private set { name = value; }
-        }
-        public decimal Cost
-        {
-            get { return cost; }
-            private set { cost = value; }
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be empty");
+                }
+
+                this.name = value;
+            }
         }
 
-        public override string ToString()
+        public decimal Cost
         {
-            return Name;
+            get
+            {
+                return this.cost;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Money cannot be negative");
+                }
+
+                this.cost = value;
+            }
         }
     }
 }

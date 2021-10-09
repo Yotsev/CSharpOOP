@@ -1,41 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShoppingSpree
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string[] peopleInfo = Console.ReadLine()
-                .Split(new char[] { ';','='}, StringSplitOptions.RemoveEmptyEntries);
-            string[] productInfo = Console.ReadLine()
-                .Split(new char[] { ';', '=' }, StringSplitOptions.RemoveEmptyEntries);
+                .Split(";");
 
-            List<Person> people = new List<Person>();
-            List<Product> products = new List<Product>();
+            string[] productsInfo = Console.ReadLine()
+                .Split(";");
 
-            for (int i = 0; i < peopleInfo.Length-1; i+=2)
+            Dictionary<string, Person> people = new Dictionary<string, Person>();
+
+            for (int i = 0; i < peopleInfo.Length; i++)
             {
-                string name = peopleInfo[i];
-                decimal money = decimal.Parse(peopleInfo[i + 1]);
-                
+                string[] currentPerson = peopleInfo[i]
+                    .Split("=");
                 try
                 {
-                    people.Add(new Person(name, money));
+                    string name = currentPerson[0];
+                    decimal money = decimal.Parse(currentPerson[1]);
+
+                    Person current = new Person(name, money);
+
+                    if (!people.ContainsKey(name))
+                    {
+                        people.Add(name, current);
+                    }
                 }
-                catch (ArgumentException exception)
+                catch (ArgumentException ex)
                 {
-                    Console.WriteLine(exception.Message);
+                    Console.WriteLine(ex.Message);
+                    Environment.Exit(0);
                 }
             }
 
-            for (int i = 0; i < productInfo.Length-1; i+=2)
-            {
-                string name = productInfo[i];
-                decimal cost = decimal.Parse(productInfo[i+1]);
+            Dictionary<string, Product> products = new Dictionary<string, Product>();
 
-                products.Add(new Product(name,cost));
+            for (int i = 0; i < productsInfo.Length; i++)
+            {
+                string[] currentProduct = productsInfo[i]
+                    .Split("=");
+                try
+                {
+                    string name = currentProduct[0];
+                    decimal cost = decimal.Parse(currentProduct[1]);
+
+                    if (!products.ContainsKey(name))
+                    {
+                        products.Add(name, new Product(name, cost));
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Environment.Exit(0);
+                }
             }
 
             string command = Console.ReadLine();
@@ -44,54 +68,36 @@ namespace ShoppingSpree
             {
                 string[] commandArgs = command
                     .Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                string person = commandArgs[0];
-                string product = commandArgs[1];
 
-                Person existingPerson = GetPerson(people, person);
-                Product existingProduct = GetProduct(products, product);
+                string personName = commandArgs[0];
+                string productName = commandArgs[1];
 
-                existingPerson.AddToBag(existingProduct);
+                if (people[personName].Money < products[productName].Cost)
+                {
+                    Console.WriteLine($"{personName} can't afford {productName}");
+                }
+                else
+                {
+                    Console.WriteLine($"{personName} bought {productName}");
+
+                    people[personName].Products.Add(products[productName]);
+                    people[personName].Money -= products[productName].Cost;
+                }
 
                 command = Console.ReadLine();
             }
 
-            foreach (var item in people)
+            foreach (Person person in people.Values)
             {
-                if (item.BagOfProducts.Count==0)
+                if (person.Products.Count == 0)
                 {
-                    Console.WriteLine($"{item.Name} - Nothing bought ");
+                    Console.WriteLine($"{person.Name} - Nothing bought");
                 }
                 else
                 {
-                    Console.WriteLine($"{item.Name} - {string.Join(", ",item.BagOfProducts)}");
+                    Console.WriteLine($"{person.Name} - {string.Join(", ", person.Products.Select(x => x.Name))}");
                 }
             }
-        }
-
-        private static Product GetProduct(List<Product> products, string product)
-        {
-            foreach (var item in products)
-            {
-                if (item.Name == product)
-                {
-                    return item;
-                }
-            }
-
-            return null;
-        }
-
-        private static Person GetPerson(List<Person> people,string person)
-        {
-            foreach (var item in people)
-            {
-                if (item.Name == person)
-                {
-                    return item;
-                }
-            }
-
-            return null;
         }
     }
 }
