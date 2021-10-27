@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CustomRandomList
 {
     public class StartUp
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            RandomList rndList = new RandomList()
-            {
-                "Pesho",
-                "Gosho",
-                "Ivan"
-            };
+            RandomList list = new RandomList();
 
-            rndList.RandomString();
+            list.Add("1");
+            list.Add("2");
+            list.Add("3");
+            list.Add("4");
+            list.Add("5");
+            ;
         }
     }
 }

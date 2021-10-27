@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Farm
 {
-    public class Animal
+  public  class Animal
     {
-         public void Eat()
+        public void Eat()
         {
-            Console.WriteLine("eating…");
+            Console.WriteLine("eating…") ;
         }
     }
 }
