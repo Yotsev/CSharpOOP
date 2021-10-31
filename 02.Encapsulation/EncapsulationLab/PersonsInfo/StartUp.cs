@@ -6,36 +6,39 @@ namespace PersonsInfo
 {
     public class StartUp
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var lines = int.Parse(Console.ReadLine());
-            var persons = new List<Person>();
+            int lines = int.Parse(Console.ReadLine());
+            List<Person> people = new List<Person>();
+            Team team = new Team("SoftUni");
+
             for (int i = 0; i < lines; i++)
             {
                 try
                 {
-                    var cmdArgs = Console.ReadLine().Split();
-                    var person = new Person(cmdArgs[0],
-                                            cmdArgs[1],
-                                            int.Parse(cmdArgs[2]),
-                                            decimal.Parse(cmdArgs[3]));
+                    string[] personInfo = Console.ReadLine()
+                        .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                    persons.Add(person);
+                    Person currentPerson = new Person(personInfo[0], personInfo[1], int.Parse(personInfo[2]), decimal.Parse(personInfo[3]));
+
+                    people.Add(currentPerson);
+
                 }
-                catch (ArgumentException exception)
+                catch (ArgumentException ax)
                 {
-                    Console.WriteLine(exception.Message);
+                    Console.WriteLine(ax.Message);
                 }
             }
 
-            Team team = new Team("SoftUni");
-
-            foreach (Person person in persons)
+            foreach (Person person in people)
             {
                 team.AddPlayer(person);
             }
 
-            Console.WriteLine(team);
+            Console.WriteLine(team.FirstTeam.Count);
+            Console.WriteLine(team.ReserveTeam.Count);
         }
     }
 }
+
+

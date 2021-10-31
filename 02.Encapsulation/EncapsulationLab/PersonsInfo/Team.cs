@@ -17,35 +17,25 @@ namespace PersonsInfo
             this.reserveTeam = new List<Person>();
         }
 
-        public IReadOnlyCollection<Person> FirstTeam
+        public IReadOnlyList<Person> FirstTeam
         {
-            get { return this.firstTeam.AsReadOnly(); }
+            get { return this.firstTeam; }
         }
-
-        public IReadOnlyCollection<Person> ReserveTeam
+        public IReadOnlyList<Person> ReserveTeam
         {
-            get { return this.reserveTeam.AsReadOnly(); }
+            get { return this.reserveTeam; }
         }
 
         public void AddPlayer(Person person)
         {
             if (person.Age < 40)
             {
-                firstTeam.Add(person);
+                this.firstTeam.Add(person);
             }
             else
             {
-                reserveTeam.Add(person);
+                this.reserveTeam.Add(person);
             }
-        }
-
-        public override string ToString()
-        {
-            StringBuilder bobTheBuilder = new StringBuilder();
-            bobTheBuilder.AppendLine($"First team has {FirstTeam.Count} players.");
-            bobTheBuilder.AppendLine($"Reserve team has {ReserveTeam.Count} players.");
-
-            return bobTheBuilder.ToString();
         }
     }
 }
