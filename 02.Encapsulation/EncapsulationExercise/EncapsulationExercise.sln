@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxData", "BoxData\BoxData.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFarm", "AnimalFarm\AnimalFarm.csproj", "{AA014E6B-1FD2-4F9B-A5F1-0077C28CD079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingSpree", "ShoppingSpree\ShoppingSpree.csproj", "{3854D6FF-56C5-49BA-A2D6-A8BFC9F667F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaCalories", "PizzaCalories\PizzaCalories.csproj", "{1F1A7A46-BF25-41A2-96C9-5493930D9745}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AA014E6B-1FD2-4F9B-A5F1-0077C28CD079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA014E6B-1FD2-4F9B-A5F1-0077C28CD079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA014E6B-1FD2-4F9B-A5F1-0077C28CD079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3854D6FF-56C5-49BA-A2D6-A8BFC9F667F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3854D6FF-56C5-49BA-A2D6-A8BFC9F667F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3854D6FF-56C5-49BA-A2D6-A8BFC9F667F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3854D6FF-56C5-49BA-A2D6-A8BFC9F667F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1A7A46-BF25-41A2-96C9-5493930D9745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1A7A46-BF25-41A2-96C9-5493930D9745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1A7A46-BF25-41A2-96C9-5493930D9745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1A7A46-BF25-41A2-96C9-5493930D9745}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
