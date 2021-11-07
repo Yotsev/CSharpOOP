@@ -6,11 +6,11 @@ namespace Cars
 {
     partial class Tesla : ICar, IElectricCar
     {
-        public string Model { get; }
+        public string Model { get; private set; }
 
-        public string Color { get; }
+        public string Color { get; private set; }
 
-        public int Battery  { get; }
+        public int Battery  { get; private set; }
 
         public Tesla(string mode, string color, int battery)
         {

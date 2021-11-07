@@ -6,9 +6,9 @@ namespace Cars
 {
     class Seat : ICar
     {
-        public string Model { get; }
+        public string Model { get; private set; }
 
-        public string Color { get; }
+        public string Color { get; private set; }
 
         public Seat(string model, string color)
         {
